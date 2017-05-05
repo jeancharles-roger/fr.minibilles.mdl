@@ -3,8 +3,12 @@ import ceylon.test {
 }
 
 import fr.minibilles.mdl {
-    List, ListItem, SubTitle,
-    Description, Button, IconKind
+    List,
+    ListItem,
+    SubTitle,
+    Description,
+    Button,
+    IconKind
 }
 
 test shared void listBasic1() =>
@@ -26,5 +30,5 @@ test shared void listBasic2() =>
             };
             "Item 2"
         },
-        ListItem { icon="face"; action = {Button {kind = IconKind("plus");}}; "Item 3"}
+        ListItem { icon="face"; action = {Button {kind = IconKind("star");}}; "Item 3"}
     }});
