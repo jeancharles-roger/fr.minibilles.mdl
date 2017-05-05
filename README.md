@@ -7,3 +7,22 @@
 # Getting Started
 
 **TODO**
+
+# Supported Components
+
+ - [x] Badges
+ - [x] Buttons
+ - [ ] Cards
+ - [ ] Chips
+ - [ ] Dialogs
+ - [ ] Layout
+ - [x] Lists
+ - [ ] Loading
+ - [ ] Menus
+ - [ ] liders
+ - [ ] Snackbar
+ - [ ] Toggles
+ - [ ] Tables
+ - [ ] Text Fields
+ - [ ] Tooltips
+
