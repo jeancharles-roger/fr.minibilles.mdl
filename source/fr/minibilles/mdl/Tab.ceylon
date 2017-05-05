@@ -112,7 +112,6 @@ shared class TabItem (
 ) {
 
     shared String resolvedId {
-        assert(is String id);
         return id;
     }
 }
