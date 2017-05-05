@@ -108,7 +108,7 @@ shared class Button (
     "The children of this element."
     {Content<PhrasingCategory>*} children = []
 ) extends HtmlButton (
-    id, buttonClazz(clazz, kind, colored, color, rippleEffect),
+    id, buttonClazz(clazz, kind, color, rippleEffect),
     accessKey, contentEditable, contextMenu, dir, draggable, dropZone,
     hidden, lang, spellcheck, style, tabIndex, title, translate, autofocus,
     disabled, form, formaction, formenctype, formmethod, formnovalidate, formtarget,
@@ -118,7 +118,7 @@ shared class Button (
 }
 
 Attribute<String> buttonClazz(
-        Attribute<String> clazz, ButtonKind kind, Boolean colored,
+        Attribute<String> clazz, ButtonKind kind,
         ButtonColor? color, Boolean rippleEffect
 ) {
     variable [String+] toAdd = ["mdl-button", "mdl-js-button", kind.tag];
