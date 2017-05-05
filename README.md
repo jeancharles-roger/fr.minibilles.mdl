@@ -16,6 +16,10 @@
  - [ ] Chips
  - [ ] Dialogs
  - [ ] Layout
+   - [ ] Navigation layouts
+   - [ ] Grid
+   - [x] Tabs
+   - [ ] Footer
  - [x] Lists
  - [ ] Loading
  - [ ] Menus
