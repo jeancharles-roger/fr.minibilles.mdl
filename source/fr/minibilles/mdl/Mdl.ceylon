@@ -23,4 +23,3 @@ shared Link hostedMdlCss(String version = "1.3.0", String theme = "indigo-pink")
 
 shared Script hostMdlScript(String version = "1.3.0") =>
     mdlScript("https://code.getmdl.io/``version``/");
-

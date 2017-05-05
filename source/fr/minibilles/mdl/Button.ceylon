@@ -15,7 +15,6 @@ import ceylon.html {
 shared abstract class ButtonKind(shared String tag) of raised | fab | minifab | IconKind {
 }
 
-"Applies raised display effect"
 shared object raised extends ButtonKind("mdl-button--raised") {
 }
 
@@ -31,15 +30,22 @@ shared object minifab extends ButtonKind("mdl-button--mini-fab") {
 shared class IconKind(shared String name) extends ButtonKind("mdl-button--icon") {
 }
 
+shared abstract class ButtonColor(shared String tag) of primary | accent {
+}
+
+shared object primary extends ButtonColor("mdl-button--primary") {
+}
+
+shared object accent extends ButtonColor("mdl-button--accent") {
+}
+
 shared class Button (
     "Button kind"
-    shared ButtonKind kind = fab,
-    "Applies colored display effect (primary or accent color, depending on the type of button)"
-    shared Boolean colored = false,
+    shared ButtonKind kind = raised,
+
     "Applies primary color display effect"
-    shared Boolean primary = false,
-    "Applies accent color display effect"
-    shared Boolean accent = false,
+    shared ButtonColor? color = null,
+
     "Applies ripple click effect"
     shared Boolean rippleEffect = false,
 
@@ -102,7 +108,7 @@ shared class Button (
     "The children of this element."
     {Content<PhrasingCategory>*} children = []
 ) extends HtmlButton (
-    id, buttonClazz(clazz, kind, colored, primary, accent, rippleEffect),
+    id, buttonClazz(clazz, kind, colored, color, rippleEffect),
     accessKey, contentEditable, contextMenu, dir, draggable, dropZone,
     hidden, lang, spellcheck, style, tabIndex, title, translate, autofocus,
     disabled, form, formaction, formenctype, formmethod, formnovalidate, formtarget,
@@ -113,12 +119,10 @@ shared class Button (
 
 Attribute<String> buttonClazz(
         Attribute<String> clazz, ButtonKind kind, Boolean colored,
-        Boolean primary, Boolean accent, Boolean rippleEffect
+        ButtonColor? color, Boolean rippleEffect
 ) {
     variable [String+] toAdd = ["mdl-button", "mdl-js-button", kind.tag];
-    if (colored) { toAdd = toAdd.withTrailing("mdl-button--colored"); }
-    if (primary) { toAdd = toAdd.withTrailing("mdl-button--primary"); }
-    if (accent) { toAdd = toAdd.withTrailing("mdl-button--accent"); }
+    if (exists color) { toAdd = toAdd.withTrailing(color.tag); }
     if (rippleEffect) { toAdd = toAdd.withTrailing("mdl-js-ripple-effect"); }
     if (is IconKind kind) { toAdd = toAdd.withTrailing("material-icons"); }
     return appendClazz(clazz, toAdd);
