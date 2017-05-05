@@ -12,22 +12,22 @@ import ceylon.html {
     ButtonType
 }
 
-shared abstract class ButtonKind(shared String tag) of raised | fab | minifab | IconKind {
+shared abstract class ButtonKind(shared {String+} tag) of raised | fab | minifab | IconKind {
 }
 
-shared object raised extends ButtonKind("mdl-button--raised") {
+shared object raised extends ButtonKind({"mdl-button--raised"}) {
 }
 
 "Applies fab (circular) display effect"
-shared object fab extends ButtonKind("mdl-button--fab") {
+shared object fab extends ButtonKind({"mdl-button--fab"}) {
 }
 
 "Applies mini-fab (small fab circular) display effect"
-shared object minifab extends ButtonKind("mdl-button--mini-fab") {
+shared object minifab extends ButtonKind({"mdl-button--fab", "mdl-button--mini-fab"}) {
 }
 
 "Applies icon (small plain circular) display effect"
-shared class IconKind(shared String name) extends ButtonKind("mdl-button--icon") {
+shared class IconKind(shared String name) extends ButtonKind({"mdl-button--icon"}) {
 }
 
 shared abstract class ButtonColor(shared String tag) of primary | accent {
@@ -121,7 +121,7 @@ Attribute<String> buttonClazz(
         Attribute<String> clazz, ButtonKind kind,
         ButtonColor? color, Boolean rippleEffect
 ) {
-    variable [String+] toAdd = ["mdl-button", "mdl-js-button", kind.tag];
+    variable [String+] toAdd = ["mdl-button", "mdl-js-button", *kind.tag];
     if (exists color) { toAdd = toAdd.withTrailing(color.tag); }
     if (rippleEffect) { toAdd = toAdd.withTrailing("mdl-js-ripple-effect"); }
     if (is IconKind kind) { toAdd = toAdd.withTrailing("material-icons"); }
