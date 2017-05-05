@@ -1,0 +1,11 @@
+language: java
+jdk:
+  - oraclejdk8
+script:
+  - ./ceylonb compile
+  - ./ceylonb compile-js
+  - ./ceylonb test test.fr.minibilles.mdl
+cache:
+  directories:
+    - $HOME/.ceylon/cache/
+    - $HOME/.ceylon/dists/
