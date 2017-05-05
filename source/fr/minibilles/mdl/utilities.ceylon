@@ -8,8 +8,9 @@ Attributes appendAttributes(Attributes attributes, [AttributeEntry*] other) =>
         attributes.append(other);
 
 Attribute<String> appendClazz(Attribute<String> clazz, {String*} other) =>
-    () =>   (switch (clazz) case (is String) clazz case (is String()) clazz() else "") +
-            other.fold(" ")((String a, String e) => a + " " + e);
+    () => " ".join(
+        { switch (clazz) case (is String) clazz case (is String()) clazz() else "", *other }.filter((e) => !e.empty)
+    );
 
 
 Attribute<String> toStringAttribute(Attribute<Integer> attribute) =>
