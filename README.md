@@ -35,6 +35,6 @@ In **bold**, the next supported components.
    - [ ] Icon toggle
    - [ ] Switch
  - [ ] **Tables**
- - [ ] **Text Fields**
+ - [x] Text Fields
  - [ ] **Tooltips**
 
