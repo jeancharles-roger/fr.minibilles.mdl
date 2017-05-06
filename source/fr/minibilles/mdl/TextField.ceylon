@@ -32,6 +32,8 @@ shared class TextField(
     "Validation for text field"
     shared TextFieldValidation? validation = null,
 
+    // TODO add multiline
+
     /* GLOBAL ATTRIBUTES - BEGIN */
     "Attribute defines a unique identifier (ID) which must be unique in the whole document. Its purpose is to identify the element when linking (using a fragment identifier), scripting, or styling (with CSS)."
     Attribute<String> id = null,
