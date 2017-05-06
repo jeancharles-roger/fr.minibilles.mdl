@@ -21,7 +21,7 @@ In **bold**, the next supported components.
  - [ ] Dialogs
  - [ ] **Layout**
    - [ ] **Navigation layouts**
-   - [ ] **Grid**
+   - [x] Grid
    - [x] Tabs
    - [ ] **Footer**
  - [x] Lists
