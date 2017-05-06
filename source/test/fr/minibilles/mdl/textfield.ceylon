@@ -28,6 +28,20 @@ test shared void testfields() =>
         TextField {
             inputId = "field6"; label = "Foobar";
             validation = TextFieldValidation("foobar", "Input is not a 'foobar' !");
+        },
+        TextField {
+            inputId = "field7"; label = "Foobar";
+            validation = TextFieldValidation("foobar", "Input is not a 'foobar' !", true);
+        },
+
+        H3 { "Expandable" },
+        TextField {
+            expandIconName = "search";
+            inputId = "field8"; label = "Search";
+        },
+        TextField {
+            expandIconName = "star"; inputId = "field9t "; label = "Foobar";
+            validation = TextFieldValidation("foobar", "Input is not a 'foobar' !");
         }
 
 

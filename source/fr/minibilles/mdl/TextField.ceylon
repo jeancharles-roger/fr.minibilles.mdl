@@ -6,7 +6,6 @@ import ceylon.html {
     Content,
     Attributes,
     Div,
-    A,
     Input,
     Label,
     InputType,
@@ -23,15 +22,15 @@ shared class TextField(
     "Initial value for text field"
     shared String content = "",
 
+    "Material icon name for an expand button for the text field.
+     If a label exists, it will be floating."
+    shared String? expandIconName = null,
+
     "Applies floating label effect"
-    shared Boolean floatingLabel = false,
+    shared Boolean floatingLabel = if (exists expandIconName) then true else false,
 
     "Validation for text field"
     shared TextFieldValidation? validation = null,
-
-    // TODO add expandable
-    // TODO add icon button
-    // TODO add invalid at start
 
     /* GLOBAL ATTRIBUTES - BEGIN */
     "Attribute defines a unique identifier (ID) which must be unique in the whole document. Its purpose is to identify the element when linking (using a fragment identifier), scripting, or styling (with CSS)."
@@ -68,31 +67,34 @@ shared class TextField(
     "The attributes associated with this element."
     Attributes attributes = []
 ) extends Div (
-    id,textFieldClazz(clazz, floatingLabel),
+    id,textFieldClazz(clazz, floatingLabel, expandIconName, validation),
     accessKey, contentEditable,contextMenu,
     dir, draggable, dropZone,
     hidden, lang, spellcheck,style,
     tabIndex, title, translate,attributes,
-    textFieldChildren(inputId, content, label, validation)
+    textFieldChildren(inputId, content, label, expandIconName, validation)
 ) {
 
 }
 
 shared class TextFieldValidation(
     shared String pattern,
-    shared String message
+    shared String message,
+    shared Boolean invalid = false
 ) {
 }
 
 
-Attribute<String> textFieldClazz(Attribute<String> clazz, Boolean floatingLabel) {
+Attribute<String> textFieldClazz(Attribute<String> clazz, Boolean floatingLabel, String? expandIconName, TextFieldValidation? validation) {
     variable [String*] toAdd = ["mdl-textfield", "mdl-js-textfield"];
     if (floatingLabel) { toAdd = toAdd.withTrailing("mdl-textfield--floating-label"); }
+    if (exists expandIconName) { toAdd = toAdd.withTrailing("mdl-textfield--expandable"); }
+    if (exists validation, validation.invalid) { toAdd = toAdd.withTrailing("is-invalid"); }
     return appendClazz(clazz, toAdd);
 }
 
 {Content<FlowCategory>*} textFieldChildren(
-        String inputId, String content, String? label, TextFieldValidation? validation
+        String inputId, String content, String? label, String? expandIconName, TextFieldValidation? validation
 ) {
     variable [Content<FlowCategory>*] children = [
         Input {
@@ -103,6 +105,7 @@ Attribute<String> textFieldClazz(Attribute<String> clazz, Boolean floatingLabel)
             val = content;
         }
     ];
+
     if (exists label) {
         children = children.withTrailing(
             Label { clazz = "mdl-textfield__label"; forElement = inputId; label}
@@ -113,5 +116,22 @@ Attribute<String> textFieldClazz(Attribute<String> clazz, Boolean floatingLabel)
             Span { clazz =  "mdl-textfield__error"; validation.message }
         );
     }
+
+    if (exists expandIconName) {
+        // construct expandable icon arround children
+        children = [
+            Label {
+                clazz = "mdl-button mdl-js-button mdl-button--icon";
+                forElement = inputId;
+                Icon(expandIconName)
+            },
+            Div {
+                clazz = "mdl-textfield__expandable-holder";
+                *children
+            }
+        ];
+    }
+
+
     return children;
 }
