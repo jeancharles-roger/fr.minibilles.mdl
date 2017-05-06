@@ -49,19 +49,19 @@ shared class Tab (
     "The attributes associated with this element."
     Attributes attributes = [],
     "The children of this element."
-    {TabItem*} tabItems = []
+    {TabPanel*} tabPanels = []
 ) extends Div (
     id, tabClazz(clazz),
     accessKey, contentEditable,contextMenu,
     dir, draggable, dropZone,
     hidden, lang, spellcheck,style,
     tabIndex, title, translate,
-    attributes, tabChildren(activeTabId, tabItems)
+    attributes, tabChildren(activeTabId, tabPanels)
 ) {
 
 }
 
-shared class TabItem (
+shared class TabPanel(
 
     shared String name,
 
@@ -103,7 +103,7 @@ shared class TabItem (
    "The children of this element."
     {Content<FlowCategory>*} chilren = []
 ) extends Div (
-    id, tabItemClazz(clazz),
+    id, tabPanelClazz(clazz),
     accessKey, contentEditable,contextMenu,
     dir, draggable, dropZone,
     hidden, lang, spellcheck,style,
@@ -121,7 +121,7 @@ Attribute<String> tabClazz(Attribute<String> clazz) {
 }
 
 {Content<FlowCategory>*} tabChildren(
-    String? activeTabId, {TabItem*} tabItems
+    String? activeTabId, {TabPanel*} tabItems
 ) {
     value tabId = if (exists activeTabId) then activeTabId else "";
     return {
@@ -140,7 +140,7 @@ Attribute<String> tabClazz(Attribute<String> clazz) {
     };
 }
 
-Attribute<String> tabItemClazz(Attribute<String> clazz) {
+Attribute<String> tabPanelClazz(Attribute<String> clazz) {
     variable [String+] toAdd = ["mdl-tabs__panel"];
     return appendClazz(clazz, toAdd);
 }
