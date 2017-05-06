@@ -131,11 +131,12 @@ Attribute<String> tabClazz(Attribute<String> clazz) {
                 let (clazz= if (tabId == item.resolvedId) then "mdl-tabs__tab is-active" else "mdl-tabs__tab")
                     A { href="#``item.resolvedId``"; clazz=clazz; item.name } }
         },
-        for (item in tabItems) Div {
-            id = item.resolvedId;
-            clazz = "mdl-tabs__panel";
-            *item.children
-        }
+        for (item in tabItems)
+            Div {
+                id = item.resolvedId;
+                clazz = if (tabId == item.resolvedId) then "mdl-tabs__panel is-active" else "mdl-tabs__panel";
+                *item.children
+            }
     };
 }
 
