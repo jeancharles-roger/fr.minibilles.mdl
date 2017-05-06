@@ -7,6 +7,9 @@
 
 **TODO**
 
+ - [ ] How to start
+ - [ ] Doc on components
+
 # Supported Components
 
 In **bold**, the next supported components.
