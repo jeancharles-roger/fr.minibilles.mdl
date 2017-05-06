@@ -23,5 +23,12 @@
     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
       <input id="field5" class="mdl-textfield__input" type="text" value="default"><label class="mdl-textfield__label" for="field5">Field 5</label>
     </div>
+    <h3>Validation</h3>
+    <div class="mdl-textfield mdl-js-textfield">
+      <input id="field5" class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" value=""><label class="mdl-textfield__label" for="field5">Number</label><span class="mdl-textfield__error">Input is not a number !</span>
+    </div>
+    <div class="mdl-textfield mdl-js-textfield">
+      <input id="field6" class="mdl-textfield__input" type="text" pattern="foobar" value=""><label class="mdl-textfield__label" for="field6">Foobar</label><span class="mdl-textfield__error">Input is not a 'foobar' !</span>
+    </div>
   </body>
 </html>

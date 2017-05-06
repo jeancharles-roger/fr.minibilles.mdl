@@ -6,7 +6,7 @@ import ceylon.test {
 }
 
 import fr.minibilles.mdl {
-    TextField
+    TextField, TextFieldValidation
 }
 
 test shared void testfields() =>
@@ -18,5 +18,17 @@ test shared void testfields() =>
 
         H3 { "Floating labels" },
         TextField { inputId = "field4"; floatingLabel = true; label = "Field 4"; },
-        TextField { inputId = "field5"; floatingLabel = true; label = "Field 5"; content = "default"; }
+        TextField { inputId = "field5"; floatingLabel = true; label = "Field 5"; content = "default"; },
+
+        H3 { "Validation" },
+        TextField {
+            inputId = "field5"; label = "Number";
+            validation = TextFieldValidation("-?[0-9]*(\\.[0-9]+)?", "Input is not a number !");
+        },
+        TextField {
+            inputId = "field6"; label = "Foobar";
+            validation = TextFieldValidation("foobar", "Input is not a 'foobar' !");
+        }
+
+
     });

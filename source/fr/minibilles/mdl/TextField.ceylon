@@ -9,7 +9,8 @@ import ceylon.html {
     A,
     Input,
     Label,
-    InputType
+    InputType,
+    Span
 }
 
 shared class TextField(
@@ -22,7 +23,11 @@ shared class TextField(
     "Initial value for text field"
     shared String content = "",
 
+    "Applies floating label effect"
     shared Boolean floatingLabel = false,
+
+    "Validation for text field"
+    shared TextFieldValidation? validation = null,
 
     /* GLOBAL ATTRIBUTES - BEGIN */
     "Attribute defines a unique identifier (ID) which must be unique in the whole document. Its purpose is to identify the element when linking (using a fragment identifier), scripting, or styling (with CSS)."
@@ -63,11 +68,18 @@ shared class TextField(
     accessKey, contentEditable,contextMenu,
     dir, draggable, dropZone,
     hidden, lang, spellcheck,style,
-    tabIndex, title, translate,
-    attributes, textFieldChildren(inputId, content, label)
+    tabIndex, title, translate,attributes,
+    textFieldChildren(inputId, content, label, validation)
 ) {
 
 }
+
+shared class TextFieldValidation(
+    shared String pattern,
+    shared String message
+) {
+}
+
 
 Attribute<String> textFieldClazz(Attribute<String> clazz, Boolean floatingLabel) {
     variable [String*] toAdd = ["mdl-textfield", "mdl-js-textfield"];
@@ -76,19 +88,26 @@ Attribute<String> textFieldClazz(Attribute<String> clazz, Boolean floatingLabel)
 }
 
 {Content<FlowCategory>*} textFieldChildren(
-        String inputId, String content, String? label
+        String inputId, String content, String? label, TextFieldValidation? validation
 ) {
-    return {
+    variable [Content<FlowCategory>*] children = [
         Input {
             id = inputId;
             clazz = "mdl-textfield__input";
             type = InputType.text;
+            pattern = if (exists validation) then validation.pattern else null;
             val = content;
-        },
-        if (exists label) Label {
-            clazz = "mdl-textfield__label";
-            forElement = inputId;
-            label
         }
-    };
+    ];
+    if (exists label) {
+        children = children.withTrailing(
+            Label { clazz = "mdl-textfield__label"; forElement = inputId; label}
+        );
+    }
+    if (exists validation) {
+        children = children.withTrailing(
+            Span { clazz =  "mdl-textfield__error"; validation.message }
+        );
+    }
+    return children;
 }
