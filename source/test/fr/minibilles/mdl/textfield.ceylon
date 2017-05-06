@@ -6,7 +6,8 @@ import ceylon.test {
 }
 
 import fr.minibilles.mdl {
-    TextField, TextFieldValidation
+    TextField,
+    TextFieldValidation
 }
 
 test shared void testfields() =>
@@ -40,7 +41,7 @@ test shared void testfields() =>
             inputId = "field8"; label = "Search";
         },
         TextField {
-            expandIconName = "star"; inputId = "field9t "; label = "Foobar";
+            expandIconName = "star"; inputId = "field9"; label = "Foobar";
             validation = TextFieldValidation("foobar", "Input is not a 'foobar' !");
         }
 
