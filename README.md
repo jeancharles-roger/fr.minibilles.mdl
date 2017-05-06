@@ -3,30 +3,35 @@
 
 [![Build Status](https://travis-ci.org/jeancharles-roger/fr.minibilles.mdl.svg?branch=master)](https://travis-ci.org/jeancharles-roger/fr.minibilles.mdl)
 
-
 # Getting Started
 
 **TODO**
 
 # Supported Components
 
+In **bold**, the next supported components.
+
  - [x] Badges
  - [x] Buttons
  - [ ] Cards
  - [ ] Chips
  - [ ] Dialogs
- - [ ] Layout
-   - [ ] Navigation layouts
-   - [ ] Grid
+ - [ ] **Layout**
+   - [ ] **Navigation layouts**
+   - [ ] **Grid**
    - [x] Tabs
-   - [ ] Footer
+   - [ ] **Footer**
  - [x] Lists
  - [ ] Loading
  - [ ] Menus
- - [ ] liders
+ - [x] Sliders
  - [ ] Snackbar
- - [ ] Toggles
- - [ ] Tables
- - [ ] Text Fields
- - [ ] Tooltips
+ - [ ] **Toggles**
+   - [ ] Checkbox
+   - [ ] Radio button
+   - [ ] Icon toggle
+   - [ ] Switch
+ - [ ] **Tables**
+ - [ ] **Text Fields**
+ - [ ] **Tooltips**
 
