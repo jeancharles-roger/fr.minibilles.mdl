@@ -29,11 +29,11 @@ In **bold**, the next supported components.
  - [ ] Menus
  - [x] Sliders
  - [ ] Snackbar
- - [ ] **Toggles**
-   - [ ] Checkbox
-   - [ ] Radio button
-   - [ ] Icon toggle
-   - [ ] Switch
+ - [x] Toggles
+   - [x] Checkbox
+   - [x] Radio button
+   - [x] Icon toggle
+   - [x] Switch
  - [ ] **Tables**
  - [x] Text Fields
  - [ ] **Tooltips**
