@@ -18,7 +18,7 @@ In **bold**, the next supported components.
  - [x] Buttons
  - [ ] Cards
  - [ ] Chips
- - [ ] Dialogs
+ - [x] Dialogs (based on HTML5 dialog only supported by Chrome now)
  - [ ] **Layout**
    - [ ] **Navigation layouts**
    - [x] Grid
