@@ -10,31 +10,34 @@
  - [ ] How to start
  - [ ] Doc on components
 
+ - [ ] Missing support
+   - [ ] Support for numeric/non numeric cells in tables
+   
 # Supported Components
 
 In **bold**, the next supported components.
 
  - [x] Badges
  - [x] Buttons
- - [ ] Cards
+ - [ ] **Cards**
  - [ ] Chips
  - [x] Dialogs (based on HTML5 dialog only supported by Chrome now)
- - [ ] **Layout**
-   - [ ] **Navigation layouts**
+ - [ ] Layout
+   - [ ] Navigation layouts
    - [x] Grid
    - [x] Tabs
-   - [ ] **Footer**
+   - [ ] Footer
  - [x] Lists
  - [ ] Loading
- - [ ] Menus
+ - [ ] **Menus**
  - [x] Sliders
- - [ ] Snackbar
+ - [ ] **Snackbar**
  - [x] Toggles
    - [x] Checkbox
    - [x] Radio button
    - [x] Icon toggle
    - [x] Switch
- - [ ] **Tables**
+ - [x] Tables
  - [x] Text Fields
  - [x] Tooltips
 

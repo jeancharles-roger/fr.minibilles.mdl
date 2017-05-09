@@ -8,7 +8,8 @@ import ceylon.html {
     Body,
     FlowCategory,
     Content,
-    Head
+    Head,
+    Meta
 }
 import ceylon.test {
     fail,
@@ -32,6 +33,7 @@ Html page(String title, {Content<FlowCategory>*} content) =>
     Html {
         Head {
             title = title;
+            Meta { charset="utf-8"; },
             hostedMdlCss(), hostMdlScript(), hostedMaterialIconsLink()
         },
         Body { *content }
