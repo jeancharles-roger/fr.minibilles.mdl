@@ -1,3 +1,6 @@
+import ceylon.html {
+    Br
+}
 import ceylon.test {
     test
 }
@@ -9,13 +12,16 @@ import fr.minibilles.mdl {
     IconToggle,
     Grid,
     GridCell,
-    Switch
+    Switch,
+    Tooltip
 }
 
 test shared void checkboxes() =>
     checkResult("checkboxes", {
-        Checkbox{ inputId = "box1"; "Checkbox 1" },
-        Checkbox{ inputId = "box2"; rippleEffect = true; "Checkbox 2" }
+        Checkbox{ id="lbox1"; inputId = "box1"; "Checkbox 1" },
+        Checkbox{ id="lbox2"; inputId = "box2"; rippleEffect = true; "Checkbox 2" },
+        Tooltip { forElement = "lbox1"; "Tooltip for check box 1"},
+        Tooltip { forElement = "lbox2"; "Multiline Tooltip", Br(), "for check box 2"}
     });
 
 
