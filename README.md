@@ -28,7 +28,7 @@ In **bold**, the next supported components.
    - [x] Tabs
    - [ ] Footer
  - [x] Lists
- - [ ] Loading
+ - [x] Loading
  - [ ] **Menus**
  - [x] Sliders
  - [ ] **Snackbar**

@@ -1,13 +1,11 @@
-import ceylon.html {
-    H3
-}
 import ceylon.test {
     test
 }
 
 import fr.minibilles.mdl {
     Button,
-    Dialog, DialogButton
+    Dialog,
+    DialogButton
 }
 
 test shared void dialog1() =>
